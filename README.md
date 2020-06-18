@@ -1,10 +1,10 @@
 # awtrix-push
-Push custom info to Awtrix's CustomApp
+Push custom info to Awtrix's CustomApp.
 
 ## Preparation
 1. Make sure CustomApp is installed.
 2. Create python3.x env.
-3. Install package: `pip install -r requirement.txt`
+3. Install package: `pip install -r requirements.txt`
 
 ## Config
 1. Copy `template.cfg` as `config.cfg`, and change it.
