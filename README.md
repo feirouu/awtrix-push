@@ -13,7 +13,7 @@ Push custom info to Awtrix's CustomApp
 
 ## Run
 ```bash
-# Run celery workder
+# Run celery worker
 CFG_PATH=config.cfg make
 
 # Run celery beat
