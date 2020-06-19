@@ -7,7 +7,7 @@ from celery.schedules import crontab
 import parse
 
 
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 
 
 config = configparser.RawConfigParser()

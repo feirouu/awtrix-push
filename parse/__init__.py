@@ -12,15 +12,7 @@ def vultr(config):
     push_data = {
         "ID": config["id"],
         "text": f'{remaining}G',
-        "icon": [0, 0, 0, 0, 0, 0, 0, 0,
-            0, 65535, 65535, 0, 669, 669, 0, 0,
-            0, 5468, 5468, 0, 669, 669, 669, 0,
-            0, 669, 669, 0, 0, 669, 669, 0,
-            0, 669, 669, 669, 0, 0, 0, 0,
-            0, 0, 669, 669, 669, 0, 0, 0,
-            0, 0, 0, 669, 669, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0
-        ]
+        "icon": config["icon"]
     }
     
     awtrix_r = requests.post(config["push_url"], json=push_data)
