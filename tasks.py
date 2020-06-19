@@ -7,7 +7,7 @@ from celery.schedules import crontab
 import parse
 
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 
 
 config = configparser.RawConfigParser()
@@ -33,4 +33,4 @@ def setup_periodic_tasks(sender, **kwargs):
 
 @app.task
 def switch(name, data):
-    getattr(parse, name.lower())(data)
+    return getattr(parse, name.lower())(data)

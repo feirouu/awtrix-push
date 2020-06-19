@@ -8,7 +8,7 @@ Push custom info to Awtrix's CustomApp.
 
 ## Config
 1. Copy `template.cfg` as `config.cfg`, and change it.
-2. In `parse/__init__.py`, write function to resolve your tasks. The function's name name needs to be the same as you defined in the `confg.cfg`, but use lower case.
+2. In `parse/__init__.py`, write function to resolve your tasks. The function's name needs to be the same as you defined in the `confg.cfg`, but use lower case.
 
 
 ## Run
