@@ -12,9 +12,8 @@ def vultr(config):
     push_data = {
         "ID": config["id"],
         "text": f'{remaining}G',
-        "icon": config["icon"]
+        "icon": [0, 0, 0, 0, 0, 0, 0, 0, 0, 65535, 65535, 0, 669, 669, 0, 0, 0, 5468, 5468, 0, 669, 669, 669, 0, 0, 669, 669, 0, 0, 669, 669, 0, 0, 669, 669, 669, 0, 0, 0, 0, 0, 0, 669, 669, 669, 0, 0, 0, 0, 0, 0, 669, 669, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
-    
     awtrix_r = requests.post(config["push_url"], json=push_data)
     if awtrix_r.status_code != requests.codes.ok:
         return "failure"
@@ -31,7 +30,6 @@ def bilibili(config):
         "text": resp_data["data"]["follower"],
         "icon": config["icon"]
     }
-
     awtrix_r = requests.post(config["push_url"], json=push_data)
     if awtrix_r.status_code != requests.codes.ok:
         return "failure"
@@ -57,7 +55,6 @@ def weather_cn(config):
         icon = 346
     if weather in ["雨", "中雨", "阵雨"]:
         icon = 477
-    
     push_data = {
         "ID": config["id"],
         "text": temperature + "°C",
