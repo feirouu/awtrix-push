@@ -62,6 +62,8 @@ def weather_cn(config):
         icon = 474
     if weather == "小雨":
         icon = 346
+    if weather == "雷阵雨":
+        icon = 345
     if weather in ["雨", "中雨", "阵雨"]:
         icon = 477
     push_data = {
