@@ -1,5 +1,5 @@
 # awtrix-push
-Push custom info to Awtrix's CustomApp.
+Push custom info to [Awtrix](https://awtrixdocs.blueforcer.de/#/)'s CustomApp.
 
 ## Preparation
 1. Make sure CustomApp is installed.
