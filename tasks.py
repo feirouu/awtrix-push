@@ -8,7 +8,7 @@ from parse import default
 from parse import custom
 
 
-__version__ = "1.2.2"
+__version__ = "2.0.0"
 
 
 config = configparser.RawConfigParser()
