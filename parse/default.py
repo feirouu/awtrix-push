@@ -1,7 +1,9 @@
 from datetime import datetime
 
 from bs4 import BeautifulSoup
+import pendulum
 import requests
+from requests.auth import HTTPBasicAuth
 
 
 def countdown(config):
@@ -19,6 +21,7 @@ def countdown(config):
 
 
 def bilibili(config):
+    """Show Bilibili Fans"""
     r = requests.get(f"https://api.bilibili.com/x/relation/stat?vmid={config['uid']}&jsonp=jsonp")
     if r.status_code != requests.codes.ok:
         return "failure"
@@ -62,6 +65,36 @@ def weather_cn(config):
         "text": temperature + "°C",
         "icon": icon
     }
+    awtrix_r = requests.post(config["push_url"], json=push_data)
+    if awtrix_r.status_code != requests.codes.ok:
+        return "failure"
+    return "success"
+
+
+def toggl(config):
+    """Get running time entry"""
+    r = requests.get("https://api.track.toggl.com/api/v8/time_entries/current", auth=HTTPBasicAuth(config['token'], 'api_token'))
+    if r.status_code != requests.codes.ok:
+        return "failure"
+    resp_data = r.json().get("data")
+    if resp_data == None:
+        push_data = {
+            "ID": config["id"],
+            "text": "Free",
+            "icon": 1197
+        }
+    else:
+        start_at = pendulum.parser(resp_data["start"])
+        diff_time = start_at.diff()
+        hours = diff_time.in_hours()
+        minutes = diff_time.in_minutes()
+        hours_str = f"{hours}" if hours >= 10 else f"0{hours}"
+        minutes_str = f"{minutes}" if minutes >= 10 else f"0{minutes}"
+        push_data = {
+            "ID": config["id"],
+            "text": f"{hours_str}:{minutes_str}",
+            "icon": 1196
+        }
     awtrix_r = requests.post(config["push_url"], json=push_data)
     if awtrix_r.status_code != requests.codes.ok:
         return "failure"

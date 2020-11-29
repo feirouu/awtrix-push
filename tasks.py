@@ -1,6 +1,5 @@
-import os, configparser, json
+import os, configparser
 
-import requests
 from celery import Celery
 from celery.schedules import crontab
 
