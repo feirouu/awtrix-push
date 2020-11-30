@@ -87,7 +87,7 @@ def toggl(config):
         start_at = pendulum.parse(resp_data["start"])
         diff_time = start_at.diff()
         hours = diff_time.in_hours()
-        minutes = diff_time.in_minutes()
+        minutes = diff_time.in_minutes() % 60
         hours_str = f"{hours}" if hours >= 10 else f"0{hours}"
         minutes_str = f"{minutes}" if minutes >= 10 else f"0{minutes}"
         push_data = {
