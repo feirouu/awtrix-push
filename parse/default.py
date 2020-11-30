@@ -84,7 +84,7 @@ def toggl(config):
             "icon": 1197
         }
     else:
-        start_at = pendulum.parser(resp_data["start"])
+        start_at = pendulum.parse(resp_data["start"])
         diff_time = start_at.diff()
         hours = diff_time.in_hours()
         minutes = diff_time.in_minutes()
