@@ -1,5 +1,5 @@
 beautifulsoup4==4.9.1
-celery==4.4.5
+celery==5.2.2
 pendulum==2.1.2
 requests==2.23.0
 redis==3.5.3
